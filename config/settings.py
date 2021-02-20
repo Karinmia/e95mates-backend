@@ -192,3 +192,7 @@ TWILIO_NUMBER = os.environ.get('TWILIO_NUMBER')
 
 # Other
 USER_DEFAULT_AVATAR_PATH = 'default.png'
+
+
+import django_heroku
+django_heroku.settings(locals())
