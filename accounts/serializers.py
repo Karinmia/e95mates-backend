@@ -1,9 +1,8 @@
 from phonenumbers import is_valid_number, parse as phonenumbers_parse
 from rest_framework import exceptions
 from rest_framework import serializers
-from rest_framework.authtoken.models import Token
 
-from .models import User
+from .models import User, SavedLocation
 
 
 class UserPhoneSerializer(serializers.ModelSerializer):
@@ -75,15 +74,13 @@ class UserUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('full_name',)
+        fields = ['full_name']
 
-    # def validate(self, attrs):
-    #
-    #     if self.partial is False:  # then all fields is required
-    #         if not email:
-    #             raise exceptions.ValidationError("Email is required")
-    #         if not attrs.get('full_name', None):
-    #             raise exceptions.ValidationError("Full name is required")
-    #
-    #     return attrs
 
+# class CreateSavedLocationSerializer():
+
+
+class SavedLocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SavedLocation
+        fields = ['id', 'name', 'address', 'location']

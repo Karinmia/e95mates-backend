@@ -61,3 +61,13 @@ class User(AbstractUser):
 
     def __str__(self):
         return str(self.phone)
+
+
+class SavedLocation(models.Model):
+    name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255, default="")
+    location = models.JSONField(default=dict)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="saved_locations")
+
+    def __str__(self):
+        return self.name

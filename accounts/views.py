@@ -104,3 +104,19 @@ class UserProfileView(APIView):
             return Response(data, status=status.HTTP_200_OK)
         else:
             return Response({"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ListSavedLocations(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = SavedLocationSerializer
+
+    def get_queryset(self):
+        return SavedLocation.objects.filter(user=self.request.user)
+
+
+class SavedLocationView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = SavedLocationSerializer
+
+    def get_queryset(self):
+        return SavedLocation.objects.filter(user=self.request.user)

@@ -1,7 +1,15 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import User
+from .models import User, SavedLocation
+
+
+class SavedLocationInline(admin.StackedInline):
+    model = SavedLocation
+    verbose_name = 'Saved Location'
+    max_num = 5
+
+    fields = ('name', 'address', 'location')
 
 
 class CustomUserAdmin(UserAdmin):
@@ -16,10 +24,12 @@ class CustomUserAdmin(UserAdmin):
     )
     fieldsets = (
         ('Personal info', {'fields': ('full_name', 'phone',)}),
-        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser')}),
+        ('Permissions', {'fields': (('is_active', 'is_staff'),)}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
     ordering = ('phone',)
+
+    inlines = [SavedLocationInline]
 
 
 admin.site.register(User, CustomUserAdmin)
