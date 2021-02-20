@@ -77,10 +77,12 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         fields = ['full_name']
 
 
-# class CreateSavedLocationSerializer():
-
-
 class SavedLocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = SavedLocation
         fields = ['id', 'name', 'address', 'location']
+
+    def create(self, validated_data):
+        validated_data['user'] = self.context['user']
+        obj = SavedLocation.objects.create(**validated_data)
+        return obj
