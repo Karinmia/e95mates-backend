@@ -2,10 +2,10 @@
 API made with Django Rest Framework
 
 ## Docs
-link will be here
+https://app.swaggerhub.com/apis-docs/karinmia4/e95mates/1#
 
 ## API url
-link will be here
+https://e95mates.herokuapp.com/
 
 ## Technologies
 Project is created with:
