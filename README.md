@@ -39,7 +39,7 @@ python manage.py migrate
 [postgres]: https://img.shields.io/badge/Tools-PostgreSQL-informational?style=flat&logo=postgresql&logoColor=white&color=teal
 
 [linked-in]: https://www.linkedin.com/in/karinmia
-[instagram]: https://www.instagram.com/karinmia333
+[instagram]: https://www.instagram.com/karinmia_
 [linked-in-logo]: https://raw.githubusercontent.com/timoth-y/timoth-y/master/assets/linkedin.svg
 [instagram-logo]: https://raw.githubusercontent.com/timoth-y/timoth-y/master/assets/instagram.svg
 
