@@ -15,6 +15,7 @@ urlpatterns = [
     path('', health_check),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
+    path('speech/', include('speech.urls')),
 
     path('locations/', ListSavedLocations.as_view(), name='ListSavedLocations'),
     path('locations/<int:pk>', SavedLocationView.as_view(), name='getUpdateDeleteLocation'),

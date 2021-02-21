@@ -1,6 +1,6 @@
 from django.urls import path
 
-from accounts.views import (
+from .views import (
     SignInRequestView, SignInVerifyView, UserProfileView
 )
 
