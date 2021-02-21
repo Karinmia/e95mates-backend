@@ -25,6 +25,8 @@ class SignInRequestView(APIView):
     parser_classes = [JSONParser, MultiPartParser]
 
     def post(self, request):
+        logger.info(request.data)
+
         request_time = timezone.now()
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
@@ -68,6 +70,8 @@ class SignInVerifyView(APIView):
     serializer_class = SignInVerifySerializer
 
     def post(self, request):
+        logger.info(request.data)
+
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             user = serializer.validated_data['user']
